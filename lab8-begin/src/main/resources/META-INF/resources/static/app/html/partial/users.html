@@ -1,0 +1,69 @@
+<h1>Users</h1><span class ="badge">{{users.length}}</span></h2>
+
+<input type="text" ng-model="search"/>
+<button ng-click ="check(search); pasulj=true;" ng-model="baton">Search</button>
+
+
+<table ng-init="getUsers();" class = "table table-condensed table table-striped">
+	<thead>
+		<tr class="active">
+			<th>Id</th>
+			<th>Name</th>
+			<th>Last Name</th>
+			<th>Address</th>
+			<th>Action</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr dir-paginate="user in users|itemsPerPage:meni|filter:search">
+			<td>{{ user.id }}</td>
+			<td>{{ user.firstname }}</td>
+			<td>{{ user.lastname }}</td>
+			<td>
+				<a href="/#/users/edit/{{user.id}}" class="btn btn-warning">View/Add/Delete</a>
+			</td>
+			<td>
+				<button ng-click = "deleteUser(user.id)" class="btn btn-danger">Delete</button>
+			</td>
+		</tr>
+	</tbody>
+
+ </table>
+ 
+ <table ng-show="pasulj==true"  ng-init="getUsers();" class = "table table-condensed table table-striped">
+	
+	<tbody>
+		<tr>
+			<td>{{ djani1 }}</td>
+			<td>{{ djani2 }}</td>
+			<td>{{ djani3 }}</td>
+			<td>
+				<button ng-click = "deleteUser(user.id)" class="btn btn-danger">Delete</button>
+				
+			</td>
+		</tr>
+	</tbody>
+ </table>
+ 
+Users per page:<select ng-init="meni=4" ng-model="meni">
+<option value="4">4</option>
+<option value="8">8</option>
+
+</select>
+
+<dir-pagination-controls
+    max-size="5"
+    direction-links="true"
+    boundary-links="true">
+  </dir-pagination-controls>
+
+
+
+
+<!-- <div class = "row text-right">
+<button ng-disabled="page==0" ng-click = "page=page-1; getUsers()" class="btn btn-primary">Previus</button>
+<span class = "label label-default">{{page+1}}/{{totalPages}}</span>
+<button ng-disabled = "page==totalPages-1" ng-click = "page=page+1; getUsers()"class="btn btn-success">Next</button>
+</div>
+ -->
+<a href ="/#/users/add" class="btn btn-info" >Add new User</a>

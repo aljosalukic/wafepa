@@ -1,0 +1,69 @@
+<input type="text" ng-model="search" ng-change="getActivities()" placeholder="Search"/>
+
+
+
+<table ng-init="page=0; getActivities();" class = "table table-condensed table table-striped">
+	<thead>
+		<tr class="active">
+			<th ng-click="sort('id')">Id
+			<span class="glyphicon sort-icon" ng-show="sortKey==id" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+			</th>
+			<th ng-click="sort('name')">Name
+			<span class="glyphicon sort-icon" ng-show="sortKey==name" ng-class="{'glyphicon-chevron-up':reverse,'glyphicon-chevron-down':!reverse}"></span>
+			</th>
+			<th>Datum</th>
+			<th ng-click="sort('updated')">Last Update</th>
+			<th>Description</th>
+			<th>Actions</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr dir-paginate="activity in activities|itemsPerPage:meni|filter:search|orderBy:sortKey:reverse">
+			<td>{{ activity.id }}</td>
+			<td>{{ activity.name }}</td>
+			<td>{{ activity.datum | date:'dd/MM/yyyy'}}</td>
+			<td>{{ activity.updated | date:'dd/MM/yyyy'}}</td>
+			<td>{{ activity.description }}</td>
+			<td>
+				<button ng-click="delete(activity.id)" class="btn btn-danger" confirm="Are you sure?">Delete</button>
+				<a href="/#/activities/edit/{{activity.id}}" class="btn btn-info">Edit</a>
+			</td>
+
+			</tr>
+	</tbody>
+</table>
+
+Activity per page:<select ng-init="meni=4" ng-model="meni">
+<option value="4">4</option>
+<option value="8">8</option>
+</select>
+
+<dir-pagination-controls
+    max-size="5"
+    direction-links="true"
+    boundary-links="true">
+  </dir-pagination-controls>
+
+
+
+
+<!-- <div class = "row text-right"> -->
+<!-- <button ng-disabled="page==0" ng-click = "page=page-1; getActivities()" class="btn btn-primary">Previous</button> -->
+<!-- <span ng-pagination=></span> -->
+<!-- <span class = "label label-default">{{page+1}}/{{totalPages}}</span> -->
+<!-- <button ng-disabled = "page==totalPages-1" ng-click = "page=page+1; getActivities()"class="btn btn-success">Next</button> -->
+<!-- </div> -->
+
+<div class="row text-center">
+<span ng-hide = "hideSpinner" class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>
+</div>
+
+<div ng-show = "error" class="alert alert-danger" role="alert">Greska</div>
+
+		<div class="alert alert-success alert-dismissible" role="alert" ng-show="deleted">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <strong>Success!</strong>{{deleteded.name}} successfuly deleted!!
+</div>
+
+
+ 

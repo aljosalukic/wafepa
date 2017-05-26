@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Vremenska prognoza</title>
+</head>
+
+
+<body>
+  <input type="text" ng-model="city"/>
+  <button ng-click="getPrognoza(city)">SEARCH</button>  	
+  	
+  
+  <table class = "table table-condensed table table-striped">
+	<thead>
+		<tr class="active">
+		
+			<th>Grad</th>
+			<th>Stepeni(C)</th>
+			<th>Nebo</th>
+		</tr>
+	</thead>
+	<tbody>
+	<tr>
+  	<td>{{ vreme.name}}</td>
+  	<td>{{ vreme.main.temp }}</td>
+  	<td>{{ vreme.weather[0].description}}</td>
+  </tr>
+	</tbody>
+</table>
+</body>
+</html>

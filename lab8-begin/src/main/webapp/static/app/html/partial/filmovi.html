@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Filmovi</title>
+</head>
+<body ng-controller = "movieController">
+
+<input type="text" ng-model="title" placeholder="Title">
+<input type="text" ng-model="year" placeholder="year">
+
+<button ng-click="getMovie(title,year)">Search</button>
+
+<table class="table">
+<tr ng-repeat="movie in movies">
+			<td>{{ movie.title }}</td>
+			<td>{{ movie.year }}</td>
+			<td>{{ movie.release_date }}</td>
+			</tr>
+			
+</table>
+
+</body>
+</html>

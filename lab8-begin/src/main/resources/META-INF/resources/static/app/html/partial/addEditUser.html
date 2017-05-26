@@ -1,0 +1,69 @@
+<h2 ng-show="add" class = "text-center">Edit user</h2>
+<h2 ng-show = "!add" class = "text-center">Add user</h2>
+
+	
+
+
+<form ng-init="initUser()" class="form-horizontal" ng-controller="UserController">
+  
+  <div class="form-group row">
+    <label class="col-sm-offset-3 col-sm-2 control-label">First Name:</label>
+    <div class="col-sm-4">
+      <input type="name" class="form-control" id="name" placeholder="Name" ng-model="user.firstname">
+    </div>
+   </div> 
+     
+     <div class="form-group row">
+     <label class="col-sm-offset-3 col-sm-2 control-label">Last Name:</label>
+    <div class="col-sm-4">
+      <input type="name" class="form-control" id="desc" placeholder="Last name" ng-model="user.lastname">
+    </div>
+    </div>
+     
+      <div class="form-group row">
+     <label class="col-sm-offset-3 col-sm-2 control-label">Email:</label>
+    <div class="col-sm-4">
+      <input type="name" class="form-control" id="desc" placeholder="Email" ng-model="user.email">
+    </div>
+   </div>
+   
+   <div class="form-group row">
+   <label class="col-sm-offset-3 col-sm-2 control-label">Datum Rodjenja:</label>
+   <div class="col-sm-4">
+   <input type="date" class="form-control" id="date" placeholder="dd-mm-yyyy" ng-model="user.datumRodjenja">
+   {{user.datumRodjenja | date:"yyyy-MM-dd"}}
+  
+  </div>    
+</div>
+ 
+   <div class="form-group row">
+     <label class="col-sm-offset-3 col-sm-2 control-label">Password:</label>
+    <div class="col-sm-4">
+      <input type="name" class="form-control" id="desc" placeholder="Desccription" ng-model="user.password">
+    </div>
+    </div>
+    
+    <div class="form-group row">
+     <label class="col-sm-offset-3 col-sm-2 control-label">Confirm Password:</label>
+    <div class="col-sm-4">
+      <input type="name" class="form-control" id="desc" placeholder="Desccription" ng-model="user.passwordConfirm">
+    </div>
+    </div>
+    
+   
+ 
+  <div class="form-group" ng-controller='sentMailCntrl'>
+    <div class="col-sm-offset-6 col-sm-6">
+     <button ng-click="checkNameAndLastName(user.firstname,user.lastname)" class="btn btn-info" >Save</button>
+    </div>
+  </div>
+  
+
+<span ng-show="istina" class="col-sm-offset-6 col-sm-3">
+		<p>Vec postoji user {{user.firstname}} {{user.lastname}}, jeste li sigurni da hocete da ga zapamtite?</p>
+     <button ng-click="saveUser();"  class="btn btn-success" >Confirm</button>
+     <a href="/#/users" ng-click="confirm=false" class="btn btn-danger" >Revert</a>
+     </span>
+     <br/>
+</form>
+

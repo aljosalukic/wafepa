@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html ng-app="wafepaApp">
+<head>
+<meta charset="UTF-8">
+<title>WAFEPA</title>
+
+<script type="text/javascript" src="/static/assets/js/angular.js"></script>
+<script type="text/javascript" src="/static/assets/js/angular-route.js"></script>
+<script type="text/javascript" src="/static/assets/js/dirPagination.js"></script>
+<script type="text/javascript" src="/static/assets/js/ui-bootstrap.js"></script>
+<script type="text/javascript" src="/static/assets/js/angular-confirm.js"></script>
+
+<link rel="stylesheet" type="text/css"
+	href="/static/assets/css/bootstrap.css"></link>
+
+
+<link rel="stylesheet" type="text/css" href="/static/app/css/main.css"></link>
+
+
+<script type="text/javascript" src="/static/app/js/main.js"></script>
+<script type="text/javascript" src="/static/app/js/controller.js"></script>
+<script type="text/javascript" src="/static/app/js/directive.js"></script>
+<script type="text/javascript" src="/static/app/js/services.js"></script>
+<script type="text/javascript" src="/static/app/js/routes.js"></script>
+</head>
+
+<body>
+	<nav class="navbar navbar-inverse navbar-fixed-top">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="/#/">Home</a> 
+				<a class="navbar-brand" href="/#/activities">Activities</a>
+				<a class="navbar-brand" href="/#/users">Users</a>
+				<a class="navbar-brand" href="/#/playlist">BBC Radio</a>
+				<a class="navbar-brand" href="/#/filmovi">Filmovi</a>
+				<a class="navbar-brand" href="/#/prognoza">Vremenska prognoza</a>
+			</div>
+		</div>
+	</nav>
+
+	<!-- Main jumbotron for a primary marketing message or call to action -->
+	<div class="jumbotron">
+		<div class="container text-center">
+			<h1>WAFEPA</h1>
+			<p>Web Application For Evidenting Physical Activities</p>
+		</div>
+	</div>
+
+
+	<div class="container" ng-view></div>
+	
+	
+</body>
+</html>
